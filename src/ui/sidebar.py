@@ -39,7 +39,7 @@ class Sidebar(QWidget):
         layout.addStretch() 
         
         # Footer / Version
-        self.ver_lbl = QLabel("v1.0.0")
+        self.ver_lbl = QLabel("v1.0.3")
         layout.addWidget(self.ver_lbl)
 
         self.apply_theme()
