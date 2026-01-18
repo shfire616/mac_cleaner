@@ -150,19 +150,21 @@ class MainWindow(QMainWindow):
         dialog = QDialog(self)
         dialog.setWindowTitle("About MacCleaner")
         dialog.setMinimumWidth(420)
+        dialog.setStyleSheet(f"background-color: {COLORS['background']};")
 
         layout = QVBoxLayout(dialog)
         title = QLabel("MacCleaner")
-        title.setStyleSheet("font-size: 18px; font-weight: 700;")
+        title.setStyleSheet(f"font-size: 18px; font-weight: 700; color: {COLORS['text_main']};")
         layout.addWidget(title)
 
         desc = QLabel(
             "MacCleaner helps you scan for system junk, app leftovers, and large files to free up space."
         )
         desc.setWordWrap(True)
+        desc.setStyleSheet(f"font-size: 13px; color: {COLORS['text_secondary']};")
         layout.addWidget(desc)
 
-        license_link = QLabel('<a href="https://opensource.org/licenses/MIT">MIT License</a>')
+        license_link = QLabel(f'<a href="https://opensource.org/licenses/MIT" style="color: {COLORS["primary"]}; text-decoration: none;">MIT License</a>')
         license_link.setOpenExternalLinks(True)
         layout.addWidget(license_link)
 
