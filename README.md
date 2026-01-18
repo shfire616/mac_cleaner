@@ -24,8 +24,6 @@ No ads. No subscriptions. No hidden tracking. Just a simple, powerful tool to re
 
 ## 📸 Screenshots
 
-> *Add your own screenshots to the `assets/` folder and update the links below!*
-
 | **Modern Dashboard** | **Smart Scanning** |
 |:---:|:---:|
 | ![Dashboard](https://raw.githubusercontent.com/shfire616/mac_cleaner/main/src/assets/dashboard_preview.png) | ![Scan Results](https://raw.githubusercontent.com/shfire616/mac_cleaner/main/src/assets/scan_preview.png) |
