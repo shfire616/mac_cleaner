@@ -53,12 +53,24 @@ No ads. No subscriptions. No hidden tracking. Just a simple, powerful tool to re
 ## 📦 Download & Install
 
 ### For Users
-1.  Download the latest **MacCleaner.dmg** from the [Releases Page](https://github.com/shfire616/mac_cleaner/releases).
+1.  Download the latest **MacCleaner-Silicon.dmg** (for M1/M2/M3) or **MacCleaner-Intel.dmg** (for Intel Macs) from the [Releases Page](https://github.com/shfire616/mac_cleaner/releases).
 2.  Open the file and drag **MacCleaner** to your **Applications** folder.
-3.  **First Run:** If macOS says the app is "unidentified":
-    *   **Right-click** the App icon.
-    *   Select **Open**.
-    *   Click **Open** in the dialog box. (You only have to do this once!)
+
+### 🛡️ Bypassing macOS Security (First Time Only)
+Since MacCleaner is open-source and not signed with a paid Apple Developer certificate, macOS will block it by default. 
+
+**Option 1: The Right-Click Trick**
+1.  Go to your **Applications** folder.
+2.  **Right-click** (or Control-click) the **MacCleaner** icon.
+3.  Select **Open** from the menu.
+4.  A dialog will appear. Click **Open**.
+5.  *Done!* You only need to do this once.
+
+**Option 2: Fix "App is Damaged" Error**
+If macOS says the app is "damaged" (this is a Gatekeeper error), run this in your Terminal:
+```bash
+sudo xattr -cr /Applications/MacCleaner.app
+```
 
 ---
 
@@ -69,18 +81,8 @@ Want to tweak the code? Build it yourself?
 ### Setup
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/mac_cleaner.git
+git clone https://github.com/shfire616/mac_cleaner.git
 cd mac_cleaner
-
-# Create environment
-conda create -n mac_cleaner python=3.11 -y
-conda activate mac_cleaner
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the app
-python src/main.py
 ```
 
 ### Build Your Own DMG
