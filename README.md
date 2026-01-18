@@ -44,6 +44,10 @@ No ads. No subscriptions. No hidden tracking. Just a simple, powerful tool to re
 *   **🧹 System Junk:** Safely clear `Caches`, `Logs`, and `Xcode DerivedData` (a lifesaver for developers!).
 *   **🐘 Large Files:** Instantly spot the massive files clogging up your Downloads folder (>100MB).
 *   **🗑️ App Leftovers:** Our smart engine scans `Application Support` to find junk left behind by deleted apps.
+*   **✅ Select All:** Use the header checkbox or Cmd+A to select all scan results.
+*   **📏 Adjustable Columns:** Resize File/Folder and Size columns to fit your workflow.
+*   **🌗 Night Mode:** Follow system theme or toggle Light/Dark manually.
+*   **ℹ️ About Menu:** Quick app intro with MIT license link.
 *   **🛠️ System Tools:** 
     *   **Update Cleaner:** Remove old macOS installer packages.
     *   **Time Machine Snapshots:** The #1 cause of hidden "System Data" bloat.

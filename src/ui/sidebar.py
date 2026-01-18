@@ -1,5 +1,6 @@
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel, QFrame
 from PyQt6.QtCore import pyqtSignal, Qt
+from src.ui.styles import COLORS
 
 class Sidebar(QWidget):
     page_selected = pyqtSignal(int, str)
@@ -10,60 +11,14 @@ class Sidebar(QWidget):
 
     def setup_ui(self):
         self.setFixedWidth(220)
-        # Translucent blurred background effect is hard in pure Qt, 
-        # so we use a solid but slightly distinct color.
-        self.setStyleSheet("""
-            QWidget {
-                background-color: #F0F0F2; 
-                border-right: 1px solid #E5E5E5;
-            }
-            QPushButton {
-                text-align: left;
-                padding: 8px 12px;
-                border: none;
-                border-radius: 6px;
-                color: #444;
-                font-size: 13px;
-                margin: 2px 10px;
-                background-color: transparent;
-                font-weight: 500;
-            }
-            QPushButton:hover {
-                background-color: rgba(0,0,0, 0.05);
-            }
-            QPushButton:checked {
-                background-color: #007AFF;
-                color: white;
-                font-weight: 600;
-            }
-            QLabel {
-                padding-left: 15px;
-                margin-top: 15px;
-                margin-bottom: 5px;
-                font-size: 11px;
-                font-weight: bold;
-                color: #888;
-                text-transform: uppercase;
-                border: none;
-                background: transparent;
-            }
-        """)
-
+        
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 20, 0, 20)
         layout.setSpacing(4)
 
         # App Title / Logo Area
-        title = QLabel("MacCleaner")
-        title.setStyleSheet("""
-            font-size: 18px; 
-            font-weight: 800; 
-            color: #333; 
-            padding-left: 20px; 
-            margin-bottom: 10px;
-            text-transform: none;
-        """)
-        layout.addWidget(title)
+        self.title_lbl = QLabel("MacCleaner")
+        layout.addWidget(self.title_lbl)
 
         self.buttons = []
         
@@ -84,9 +39,59 @@ class Sidebar(QWidget):
         layout.addStretch() 
         
         # Footer / Version
-        ver = QLabel("v1.0.0")
-        ver.setStyleSheet("margin-top: 0; padding-left: 20px; font-weight: normal; color: #aaa;")
-        layout.addWidget(ver)
+        self.ver_lbl = QLabel("v1.0.0")
+        layout.addWidget(self.ver_lbl)
+
+        self.apply_theme()
+
+    def apply_theme(self):
+        self.setStyleSheet(f"""
+            QWidget {{
+                background-color: {COLORS['surface']}; 
+                border-right: 1px solid {COLORS['border']};
+            }}
+            QPushButton {{
+                text-align: left;
+                padding: 8px 12px;
+                border: none;
+                border-radius: 6px;
+                color: {COLORS['text_main']};
+                font-size: 13px;
+                margin: 2px 10px;
+                background-color: transparent;
+                font-weight: 500;
+            }}
+            QPushButton:hover {{
+                background-color: {COLORS['hover']};
+            }}
+            QPushButton:checked {{
+                background-color: {COLORS['primary']};
+                color: white;
+                font-weight: 600;
+            }}
+            QLabel {{
+                padding-left: 15px;
+                margin-top: 15px;
+                margin-bottom: 5px;
+                font-size: 11px;
+                font-weight: bold;
+                color: {COLORS['text_secondary']};
+                text-transform: uppercase;
+                border: none;
+                background: transparent;
+            }}
+        """)
+        
+        self.title_lbl.setStyleSheet(f"""
+            font-size: 18px; 
+            font-weight: 800; 
+            color: {COLORS['text_main']}; 
+            padding-left: 20px; 
+            margin-bottom: 10px;
+            text-transform: none;
+        """)
+
+        self.ver_lbl.setStyleSheet(f"margin-top: 0; padding-left: 20px; font-weight: normal; color: {COLORS['text_secondary']};")
 
     def add_nav_button(self, text, index, checked=False, icon=""):
         # Combine icon and text
