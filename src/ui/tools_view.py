@@ -6,6 +6,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt
 import humanize
+from src.ui.styles import COLORS
 
 class ToolsView(QWidget):
     def __init__(self):
@@ -18,13 +19,13 @@ class ToolsView(QWidget):
         layout.setSpacing(20)
         layout.setContentsMargins(30, 30, 30, 30)
 
-        title = QLabel("System Tools (Advanced)")
-        title.setStyleSheet("font-size: 20px; font-weight: bold;")
-        layout.addWidget(title)
+        self.tool_widgets = []
+
+        self.title_lbl = QLabel("System Tools (Advanced)")
+        layout.addWidget(self.title_lbl)
         
-        desc = QLabel("These items require Admin permissions (sudo). We provide the commands for you.")
-        desc.setStyleSheet("color: #666; margin-bottom: 10px;")
-        layout.addWidget(desc)
+        self.desc_lbl = QLabel("These items require Admin permissions (sudo). We provide the commands for you.")
+        layout.addWidget(self.desc_lbl)
 
         # 1. Update Leftovers
         self.add_tool_card(
@@ -43,16 +44,11 @@ class ToolsView(QWidget):
             self.check_snapshots,
             "for d in $(tmutil listlocalsnapshotdates | grep \"-\"); do sudo tmutil deletelocalsnapshots $d; done"
         )
+        
+        self.apply_theme()
 
     def add_tool_card(self, parent_layout, title, description, check_func, command):
         frame = QFrame()
-        frame.setStyleSheet("""
-            QFrame {
-                background-color: #FFFFFF;
-                border: 1px solid #E5E5E5;
-                border-radius: 12px;
-            }
-        """)
         flayout = QVBoxLayout(frame)
         flayout.setContentsMargins(20, 20, 20, 20)
         flayout.setSpacing(10)
@@ -60,7 +56,6 @@ class ToolsView(QWidget):
         # Header
         head = QHBoxLayout()
         lbl_title = QLabel(title)
-        lbl_title.setStyleSheet("font-weight: 700; font-size: 15px; border: none; color: #1D1D1F;")
         head.addWidget(lbl_title)
         head.addStretch()
         
@@ -73,22 +68,18 @@ class ToolsView(QWidget):
 
         # Description
         lbl_desc = QLabel(description)
-        lbl_desc.setStyleSheet("color: #86868B; border: none; font-size: 13px;")
         flayout.addWidget(lbl_desc)
 
         # Status Label
         status_lbl = QLabel("Status: Unknown")
-        status_lbl.setStyleSheet("color: #007AFF; font-weight: 600; margin-top: 5px; border: none;")
         flayout.addWidget(status_lbl)
 
         # Command Area
         cmd_box = QFrame()
-        cmd_box.setStyleSheet("background-color: #F5F5F7; border-radius: 6px; border: none;")
         cmd_layout = QHBoxLayout(cmd_box)
         cmd_layout.setContentsMargins(12, 8, 12, 8)
         
         lbl_cmd = QLabel(command)
-        lbl_cmd.setStyleSheet("font-family: 'Menlo', 'Monaco', 'Courier New', monospace; color: #333; border: none; font-size: 12px;")
         cmd_layout.addWidget(lbl_cmd)
         
         btn_copy = QPushButton("Copy")
@@ -99,6 +90,33 @@ class ToolsView(QWidget):
         
         flayout.addWidget(cmd_box)
         parent_layout.addWidget(frame)
+        
+        self.tool_widgets.append({
+            'frame': frame,
+            'title': lbl_title,
+            'desc': lbl_desc,
+            'status': status_lbl,
+            'cmd_box': cmd_box,
+            'cmd_lbl': lbl_cmd
+        })
+
+    def apply_theme(self):
+        self.title_lbl.setStyleSheet(f"font-size: 20px; font-weight: bold; color: {COLORS['text_main']};")
+        self.desc_lbl.setStyleSheet(f"color: {COLORS['text_secondary']}; margin-bottom: 10px;")
+        
+        for w in self.tool_widgets:
+            w['frame'].setStyleSheet(f"""
+                QFrame {{
+                    background-color: {COLORS['surface']};
+                    border: 1px solid {COLORS['border']};
+                    border-radius: 12px;
+                }}
+            """)
+            w['title'].setStyleSheet(f"font-weight: 700; font-size: 15px; border: none; color: {COLORS['text_main']};")
+            w['desc'].setStyleSheet(f"color: {COLORS['text_secondary']}; border: none; font-size: 13px;")
+            w['status'].setStyleSheet(f"color: {COLORS['primary']}; font-weight: 600; margin-top: 5px; border: none;")
+            w['cmd_box'].setStyleSheet(f"background-color: {COLORS['background']}; border-radius: 6px; border: none;")
+            w['cmd_lbl'].setStyleSheet(f"font-family: 'Menlo', 'Monaco', 'Courier New', monospace; color: {COLORS['text_main']}; border: none; font-size: 12px;")
 
     def run_check(self, func, label):
         label.setText("Checking...")
