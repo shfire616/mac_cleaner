@@ -11,15 +11,24 @@
 
 **MacCleaner is for you.**
 
+---
+
+## ⚠️ **WARNING: USE AT YOUR OWN RISK** ⚠️
+**MacCleaner is a powerful system utility. While it is designed to be safe by moving files to the Trash, the author is NOT responsible for any data loss, system instability, or accidental deletion of important files. Always ensure you have a full system backup (Time Machine) before performing any cleaning operations.**
+
+---
+
 No ads. No subscriptions. No hidden tracking. Just a simple, powerful tool to reclaim your hard drive space safely. Built by a developer, for everyone.
 
 ---
 
 ## 📸 Screenshots
 
+> *Add your own screenshots to the `assets/` folder and update the links below!*
+
 | **Modern Dashboard** | **Smart Scanning** |
 |:---:|:---:|
-| ![Dashboard](https://via.placeholder.com/600x400.png?text=Dashboard+UI+Preview) | ![Scan Results](https://via.placeholder.com/600x400.png?text=System+Junk+Scan) |
+| ![Dashboard](https://raw.githubusercontent.com/shfire616/mac_cleaner/main/src/assets/dashboard_preview.png) | ![Scan Results](https://raw.githubusercontent.com/shfire616/mac_cleaner/main/src/assets/scan_preview.png) |
 | *Visual overview of your disk usage* | *Grouped results for safe & easy cleaning* |
 
 ---
