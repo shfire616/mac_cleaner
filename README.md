@@ -26,7 +26,7 @@ No ads. No subscriptions. No hidden tracking. Just a simple, powerful tool to re
 
 | **Modern Dashboard** | **Smart Scanning** |
 |:---:|:---:|
-| ![Dashboard](https://raw.githubusercontent.com/shfire616/mac_cleaner/main/src/assets/dashboard_preview.png) | ![Scan Results](https://raw.githubusercontent.com/shfire616/mac_cleaner/main/src/assets/scan_preview.png) |
+| ![Dashboard](src/assets/dashboard_preview.png) | ![Scan Results](src/assets/scan_preview.png) |
 | *Visual overview of your disk usage* | *Grouped results for safe & easy cleaning* |
 
 ---
