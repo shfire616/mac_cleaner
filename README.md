@@ -55,7 +55,7 @@ No ads. No subscriptions. No hidden tracking. Just a simple, powerful tool to re
 ## 📦 Download & Install
 
 ### For Users
-1.  Download the latest **MacCleaner.dmg** from the [Releases Page](#).
+1.  Download the latest **MacCleaner.dmg** from the [Releases Page](https://github.com/shfire616/mac_cleaner/releases).
 2.  Open the file and drag **MacCleaner** to your **Applications** folder.
 3.  **First Run:** If macOS says the app is "unidentified":
     *   **Right-click** the App icon.
