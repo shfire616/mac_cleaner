@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: macos-13    # Intel Mac
+          - os: macos-15-intel    # Modern Intel Mac runner
             arch_name: Intel
           - os: macos-14    # Apple Silicon (M1/M2)
             arch_name: Silicon
