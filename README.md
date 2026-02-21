@@ -87,18 +87,18 @@ Want to tweak the code? Build it yourself?
 # Clone the repo
 git clone https://github.com/shfire616/mac_cleaner.git
 cd mac_cleaner
+
+# Setup the environment and install dependencies
+uv sync
 ```
 
 ### Build Your Own DMG
 ```bash
-# Install builder tools
-pip install pyinstaller dmgbuild
-
 # Build the App Bundle
-pyinstaller --name="MacCleaner" --windowed --noconfirm --clean --paths=src src/main.py
+uv run pyinstaller --name="MacCleaner" --windowed --noconfirm --clean --paths=src src/main.py
 
 # Create the DMG Installer
-dmgbuild -s dmg_settings.py "MacCleaner" dist/MacCleaner.dmg
+uv run dmgbuild -s dmg_settings.py "MacCleaner" dist/MacCleaner.dmg
 ```
 
 ---

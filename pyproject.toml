@@ -1,0 +1,17 @@
+[project]
+name = "mac-cleaner"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "humanize>=4.9.0",
+    "pyqt6>=6.6.0",
+    "send2trash>=1.8.2",
+]
+
+[dependency-groups]
+dev = [
+    "dmgbuild>=1.6.5",
+    "pyinstaller>=6.19.0",
+]
